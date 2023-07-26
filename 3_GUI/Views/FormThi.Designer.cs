@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             groupBox1 = new GroupBox();
-            bt_clear = new Button();
             tx_tPho = new TextBox();
             tx_qGia = new TextBox();
             tx_diaChi = new TextBox();
@@ -57,7 +56,6 @@
             // 
             // groupBox1
             // 
-            groupBox1.Controls.Add(bt_clear);
             groupBox1.Controls.Add(tx_tPho);
             groupBox1.Controls.Add(tx_qGia);
             groupBox1.Controls.Add(tx_diaChi);
@@ -76,16 +74,6 @@
             groupBox1.TabIndex = 0;
             groupBox1.TabStop = false;
             groupBox1.Text = "Thuộc tính";
-            // 
-            // bt_clear
-            // 
-            bt_clear.Location = new Point(876, 119);
-            bt_clear.Name = "bt_clear";
-            bt_clear.Size = new Size(94, 29);
-            bt_clear.TabIndex = 100;
-            bt_clear.Text = "Clear";
-            bt_clear.UseVisualStyleBackColor = true;
-            bt_clear.Click += bt_clear_Click;
             // 
             // tx_tPho
             // 
@@ -303,6 +291,5 @@
         private Button bt_create;
         private Button bt_show;
         private TextBox tx_tim;
-        private Button bt_clear;
     }
 }
