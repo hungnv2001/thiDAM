@@ -48,6 +48,7 @@
             bt_create = new Button();
             tx_tim = new TextBox();
             bt_show = new Button();
+            bt_export = new Button();
             groupBox1.SuspendLayout();
             groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dtgv_data).BeginInit();
@@ -56,6 +57,7 @@
             // 
             // groupBox1
             // 
+            groupBox1.Controls.Add(bt_export);
             groupBox1.Controls.Add(tx_tPho);
             groupBox1.Controls.Add(tx_qGia);
             groupBox1.Controls.Add(tx_diaChi);
@@ -74,6 +76,7 @@
             groupBox1.TabIndex = 0;
             groupBox1.TabStop = false;
             groupBox1.Text = "Thuộc tính";
+            groupBox1.Enter += groupBox1_Enter;
             // 
             // tx_tPho
             // 
@@ -250,6 +253,16 @@
             bt_show.UseVisualStyleBackColor = true;
             bt_show.Click += bt_show_Click;
             // 
+            // bt_export
+            // 
+            bt_export.Location = new Point(849, 120);
+            bt_export.Name = "bt_export";
+            bt_export.Size = new Size(94, 29);
+            bt_export.TabIndex = 100;
+            bt_export.Text = "Export";
+            bt_export.UseVisualStyleBackColor = true;
+            bt_export.Click += bt_export_Click;
+            // 
             // FormThi
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -291,5 +304,6 @@
         private Button bt_create;
         private Button bt_show;
         private TextBox tx_tim;
+        private Button bt_export;
     }
 }

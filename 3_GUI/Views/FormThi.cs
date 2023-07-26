@@ -9,7 +9,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using Microsoft.Office.Interop.Excel;
+using app = Microsoft.Office.Interop.Excel.Application;
 namespace _3_GUI.Views
 {
     public partial class FormThi : Form
@@ -195,6 +196,42 @@ namespace _3_GUI.Views
             tx_diaChi.Text = "";
             tx_tPho.Text = "";
             tx_qGia.Text = "";
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void export2Excel(DataGridView g, string duongDan)
+        {
+            app obj = new app();
+            obj.Application.Workbooks.Add(Type.Missing);
+            obj.Columns.ColumnWidth = 25;
+            for (int i = 2; i < g.Columns.Count ; i++) { obj.Cells[1, i-1] = g.Columns[i].HeaderText; }
+            for (int i = 0; i < g.Rows.Count; i++)
+            {
+                for (int j = 2; j < g.Columns.Count; j++)
+                {
+                    if (g.Rows[i].Cells[j].Value != null) { obj.Cells[i+2 , j - 1] = g.Rows[i].Cells[j].Value.ToString(); }
+                }
+            }
+          //  obj.ActiveWorkbook.SaveCopyAs(duongDan + ".xlsx");
+            obj.ActiveWorkbook.SaveAs(duongDan + ".xlsx");
+            obj.ActiveWorkbook.Saved = true;
+     
+        }
+
+        private void bt_export_Click(object sender, EventArgs e)
+        {
+            string filePath = "";
+            SaveFileDialog dialog = new SaveFileDialog();
+            dialog.Filter = "Excel | *.xlsx | Excel 2003 | *.xls";
+            if (dialog.ShowDialog() == DialogResult.OK)
+            {
+                filePath = dialog.FileName;
+            }
+            export2Excel(dtgv_data, filePath);
         }
     }
 }
